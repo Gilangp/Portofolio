@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <Navbar />
     <section class="container mx-auto px-4 py-12">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">
         Hi, I'm <span class="text-primary">Frontend Developer</span>
