@@ -1,24 +1,16 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
 module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: '#3a86ff', // Warna utama
-        dark: '#121212',   // Untuk dark mode
-      },
-      fontFamily: {
-        sans: ['Poppins', 'sans-serif'], // Font custom
+        'dark-blue': '#081b29',
+        'light-blue': '#00abf0',
+        'darker-blue': '#05111d',
+        'lighter-blue': '#33bbff'
       },
     },
   },

@@ -1,5 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  @apply bg-white dark:bg-dark-blue transition-colors duration-300;
+}
+
+.main-content {
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+nav {
+    z-index: 1000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
