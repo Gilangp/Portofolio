@@ -10,6 +10,10 @@
       <section id="about" class="section-page">
         <About />
       </section>
+
+      <section id="skills" class="section-page">
+        <Skills />
+      </section>
       
       <section id="portfolio" class="section-page">
         <Portfolio />
@@ -29,6 +33,7 @@ import NavBar from '@/components/layout/NavBar.vue'
 import Footer from '@/components/layout/Footer.vue'
 import Home from '@/components/sections/Home.vue'
 import About from '@/components/sections/About.vue'
+import Skills from '@/components/sections/Skills.vue'
 import Portfolio from '@/components/sections/Portfolio.vue'
 import Contact from '@/components/sections/Contact.vue'
 
@@ -38,6 +43,7 @@ export default {
     Footer,
     Home,
     About,
+    Skills,
     Portfolio,
     Contact
   },
@@ -51,10 +57,10 @@ export default {
 </script>
 
 <style>
-.section-page {
+/* .section-page {
   @apply min-h-screen py-14;
-  scroll-margin-top: 2.5rem; /* Sesuaikan dengan tinggi navbar */
-}
+  scroll-margin-top: 2.5rem;
+} */
 
 .responsive-layout {
   @apply text-base md:text-lg;

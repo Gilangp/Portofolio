@@ -7,7 +7,7 @@
       <div class="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-500/10 blur-xl animate-float-reverse"></div>
     </div>
 
-    <!-- <div class="h-16"></div> -->
+    <div class="h-14"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-6 md:pt-10 pb-12 md:pb-20 relative z-10">
       <div class="flex flex-col lg:flex-row items-center justify-around gap-8 md:gap-10 xl:gap-12">
