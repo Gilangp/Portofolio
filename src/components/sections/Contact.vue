@@ -157,7 +157,7 @@
             </h3>
             
             <div class="flex flex-wrap gap-2">
-              <a href="https://github.com/gilangpurnomo" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
+              <a href="https://github.com/Gilangp" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
                 <div class="p-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 flex items-center gap-1.5">
                   <div class="p-1 bg-white dark:bg-gray-800 rounded-md">
                     <svg class="h-3.5 w-3.5 text-gray-800 dark:text-gray-200" fill="currentColor" viewBox="0 0 24 24">
@@ -168,7 +168,7 @@
                 </div>
               </a>
               
-              <a href="https://linkedin.com/in/gilangpurnomo" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
+              <a href="https://www.linkedin.com/in/gilang-purnomo-b3863328b/" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
                 <div class="p-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 flex items-center gap-1.5">
                   <div class="p-1 bg-white dark:bg-gray-800 rounded-md">
                     <svg class="h-3.5 w-3.5 text-gray-800 dark:text-gray-200" fill="currentColor" viewBox="0 0 24 24">
@@ -190,7 +190,7 @@
                 </div>
               </a> -->
               
-              <a href="https://instagram.com/gilangpurnomo" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
+              <a href="https://www.instagram.com/gilangprnm__/" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
                 <div class="p-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 flex items-center gap-1.5">
                   <div class="p-1 bg-white dark:bg-gray-800 rounded-md">
                     <svg class="h-3.5 w-3.5 text-gray-800 dark:text-gray-200" fill="currentColor" viewBox="0 0 24 24">
@@ -201,7 +201,7 @@
                 </div>
               </a>
 
-              <a href="https://tiktok.com/@yourusername" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
+              <a href="https://www.tiktok.com/@gilangp__" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
                 <div class="p-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-pink-100 dark:hover:bg-blue-900/30 transition-colors duration-200 flex items-center gap-1.5">
                   <div class="p-1 bg-white dark:bg-gray-800 rounded-md">
                     <svg class="h-3.5 w-3.5 text-gray-800 dark:text-gray-200" fill="currentColor" viewBox="0 0 24 24">

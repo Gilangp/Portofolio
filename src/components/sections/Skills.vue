@@ -70,7 +70,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div v-for="(skill, index) in networkingTools" :key="'tool-'+index" class="flex items-center gap-3 p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-colors border border-gray-100 dark:border-gray-700">
                 <div class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-md bg-gray-50 dark:bg-gray-700 shadow-sm">
-                  <img :src="`/src/assets/images/${skill.icon}`" :alt="skill.name + ' icon'" class="h-5 w-5 object-contain" loading="lazy" />
+                  <img :src="skill.icon" :alt="skill.name + ' icon'" class="h-5 w-5 object-contain" loading="lazy" />
                 </div>
                 <div class="flex-1 min-w-0">
                   <h4 class="text-sm font-semibold text-gray-800 dark:text-gray-100 truncate">{{ skill.name }}</h4>
@@ -155,12 +155,12 @@ export default {
       networkingTools: [
         {
           name: "Cisco Packet Tracer",
-          icon: "sisco_packet_tracer.png",
+          icon: new URL('@/assets/images/sisco_packet_tracer.png', import.meta.url).href,
           proficiency: 85
         },
         {
           name: "GNS3",
-          icon: "GNS3.png",
+          icon: new URL('@/assets/images/GNS3.png', import.meta.url).href,
           proficiency: 75
         },
       ],

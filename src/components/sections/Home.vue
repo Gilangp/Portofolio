@@ -56,25 +56,25 @@
 
           <!-- Medsos -->
           <div class="flex justify-center lg:justify-start gap-3 md:gap-4 pt-2 animate-fade-in" style="animation-delay: 0.7s">
-            <a href="https://github.com/yourusername" target="_blank"
+            <a href="https://github.com/Gilangp" target="_blank"
               class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
               aria-label="GitHub">
               <GithubIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
 
-            <a href="https://linkedin.com/in/yourusername" target="_blank"
+            <a href="https://www.linkedin.com/in/gilang-purnomo-b3863328b/" target="_blank"
               class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
               aria-label="LinkedIn">
               <LinkedinIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
 
-            <a href="https://instagram.com/yourusername" target="_blank"
+            <a href="https://www.instagram.com/gilangprnm__/" target="_blank"
               class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-pink-500 dark:text-pink-400 hover:text-pink-600 dark:hover:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
               aria-label="Instagram">
               <InstagramIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
             
-            <a href="https://www.tiktok.com/@yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.tiktok.com/@gilangp__" target="_blank" rel="noopener noreferrer"
               class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
               aria-label="TikTok">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor">
