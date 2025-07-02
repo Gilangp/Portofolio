@@ -1,6 +1,5 @@
 <template>
   <section class="min-h-screen bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-500 relative overflow-hidden">
-    <!-- Animated background -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
       <div class="absolute top-20 left-10 w-32 h-32 rounded-full bg-blue-400/10 blur-3xl animate-float-slow"></div>
       <div class="absolute bottom-1/4 right-20 w-40 h-40 rounded-full bg-blue-600/10 blur-3xl animate-float-slower"></div>
@@ -63,30 +62,30 @@
               <GithubIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
 
-            <a href="https://instagram.com/yourusername" target="_blank"
-              class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-pink-500 dark:text-pink-400 hover:text-pink-600 dark:hover:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
-              aria-label="Instagram">
-              <InstagramIcon class="w-5 h-5 md:w-6 md:h-6" />
-            </a>
-
             <a href="https://linkedin.com/in/yourusername" target="_blank"
               class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
               aria-label="LinkedIn">
               <LinkedinIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
+
+            <a href="https://instagram.com/yourusername" target="_blank"
+              class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-pink-500 dark:text-pink-400 hover:text-pink-600 dark:hover:text-pink-300 hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
+              aria-label="Instagram">
+              <InstagramIcon class="w-5 h-5 md:w-6 md:h-6" />
+            </a>
             
-            <a href="mailto:your.email@example.com"
+            <a href="https://www.tiktok.com/@yourusername" target="_blank" rel="noopener noreferrer"
               class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md"
-              aria-label="Email">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
               </svg>
             </a>
           </div>
 
-          <!-- Buttons -->
+          <!-- button -->
           <div class="flex flex-col sm:flex-row gap-4 pt-3 animate-fade-in" style="animation-delay: 0.9s">
-            <button @click="scrollToSection('projects')" class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
+            <button @click="scrollToSection('portfolio')" class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
               <span class="relative z-10 flex items-center gap-2">
                 View My Work 
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -122,8 +121,8 @@ export default {
       titles: [
         "Fullstack Developer",
         "Network Engineer",
-        "Tech Enthusiast",
-        "Problem Solver"
+        // "student",
+        // "Problem Solver"
       ],
       currentTitle: "",
       currentIndex: 0,

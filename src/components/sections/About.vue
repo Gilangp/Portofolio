@@ -1,15 +1,13 @@
 <template>
-  <section id="about" class="min-h-[60vh] bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden py-4 md:py-8">
-    <!-- Background elements remain unchanged -->
+  <section id="about" class="min-h-[60vh] bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden py-8 md:py-12">
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
       <div class="absolute top-1/4 left-1/5 w-32 h-32 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl animate-float-slow opacity-70"></div>
       <div class="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-indigo-600/10 to-pink-600/10 blur-xl animate-float-slower opacity-70"></div>
     </div>
 
-    <div class="h-14"></div>
+    <div class="h-8"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Header remains unchanged -->
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 animate-fade-in">
         <span class="relative inline-block">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
@@ -20,12 +18,11 @@
       </h2>
 
       <div class="flex flex-col lg:flex-row items-center gap-8 xl:gap-12">
-        <!-- Photo container remains unchanged -->
         <div class="w-full lg:w-2/5 order-1 animate-fade-in" style="animation-delay: 0.2s">
           <div class="relative w-80 h-80 sm:w-96 sm:h-96 mx-auto">
             <div class="relative w-full h-full overflow-hidden rounded-xl border-4 border-blue-400/50 hover:border-purple-300 transition-all duration-500 z-10 shadow-lg hover:shadow-xl hover:shadow-purple-500/20 group transform hover:-translate-y-1">
               <img 
-                src="@/assets/images/porto.jpeg"
+                src="@/assets/images/About1.jpg"
                 alt="Gilang Purnomo"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
@@ -37,7 +34,6 @@
 
         <!-- Content section -->
         <div class="w-full lg:w-3/5 order-2 space-y-4 md:space-y-6 animate-fade-in text-left pl-0 lg:pl-4" style="animation-delay: 0.4s">
-          <!-- Other content remains unchanged -->
           <h3 class="text-xl md:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500">
             Professional Profile
           </h3>
@@ -53,7 +49,7 @@
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <!-- Info cards remain unchanged -->
+            <!-- Info -->
             <div class="bg-white/90 dark:bg-gray-800/90 p-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
               <div class="flex items-start gap-3">
                 <div class="p-2 bg-blue-100/80 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
@@ -87,7 +83,7 @@
             </div>
           </div>
           
-          <!-- Modified button section - standard size for tablet and desktop -->
+          <!-- button -->
           <div class="pt-2">
             <a href="/path-to-cv.pdf" download="Gilang-Purnomo-CV.pdf" 
               class="inline-block border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white px-4 py-2 md:px-5 md:py-2 lg:px-4 lg:py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-[1.03] hover:bg-blue-500 dark:hover:bg-blue-400 flex items-center justify-center gap-2 w-fit mx-auto md:mx-0">
@@ -117,7 +113,6 @@ export default {
 </script>
 
 <style scoped>
-/* Animations remain unchanged */
 .animate-fade-in {
   animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   opacity: 0;
