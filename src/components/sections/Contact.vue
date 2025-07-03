@@ -42,7 +42,7 @@
                   v-model="form.name" 
                   required
                   class="w-full px-3 py-2 text-xs border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
-                  placeholder="John Doe"
+                  placeholder="Kael Ardyn"
                 >
               </div>
 
@@ -54,7 +54,7 @@
                   v-model="form.email" 
                   required
                   class="w-full px-3 py-2 text-xs border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
-                  placeholder="john@example.com"
+                  placeholder="Kael@example.com"
                 >
               </div>
 
@@ -231,6 +231,11 @@
 
 <script>
 import { ref } from 'vue'
+import emailjs from 'emailjs-com'
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
 
 export default {
   setup() {
@@ -246,21 +251,29 @@ export default {
     const submitForm = () => {
       isSubmitting.value = true
 
-      setTimeout(() => {
-        isSubmitting.value = false
+      emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: form.value.name,
+          email: form.value.email,
+          message: form.value.message,
+          time: new Date().toLocaleString(),
+        },
+        PUBLIC_KEY
+      )
+      .then(() => {
         showSuccessToast.value = true
-        
-        // reset form
-        form.value = {
-          name: '',
-          email: '',
-          message: ''
-        }
-
-        setTimeout(() => {
-          showSuccessToast.value = false
-        }, 3000)
-      }, 1500)
+        form.value = { name: '', email: '', message: '' }
+        setTimeout(() => showSuccessToast.value = false, 3000)
+      })
+      .catch((err) => {
+        alert("Failed to send email. Please try again.")
+        console.error(err)
+      })
+      .finally(() => {
+        isSubmitting.value = false
+      })
     }
 
     return {
