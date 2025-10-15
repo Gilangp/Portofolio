@@ -50,8 +50,8 @@
 
           <!-- Description -->
           <p class="text-gray-600 dark:text-gray-300 max-w-lg text-sm md:text-base animate-fade-in" style="animation-delay: 0.6s">
-            Passionate about building seamless web experiences and robust network infrastructure. 
-            Combining technical expertise with creative problem-solving to deliver exceptional results.
+            Passionate about creating impactful web experiences and building reliable network systems.
+            Combining creativity and technical problem-solving to deliver seamless digital solutions.
           </p>
 
           <!-- Medsos -->

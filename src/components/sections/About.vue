@@ -17,14 +17,14 @@
         </span>
       </h2>
 
-      <div class="flex flex-col lg:flex-row items-center gap-8 xl:gap-12">
+      <div class="flex flex-col lg:flex-row items-start gap-8 xl:gap-12">
         <div class="w-full lg:w-2/5 order-1 animate-fade-in" style="animation-delay: 0.2s">
-          <div class="relative w-80 h-80 sm:w-96 sm:h-96 mx-auto">
-            <div class="relative w-full h-full overflow-hidden rounded-xl border-4 border-blue-400/50 hover:border-purple-300 transition-all duration-500 z-10 shadow-lg hover:shadow-xl hover:shadow-purple-500/20 group transform hover:-translate-y-1">
+          <div class="relative flex justify-center mx-auto -mt-4 lg:mt-0">
+            <div class="overflow-hidden rounded-xl border-4 border-blue-400/50 hover:border-purple-300 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-purple-500/20 group transform hover:-translate-y-1">
               <img 
-                src="@/assets/images/About1.jpg"
+                src="@/assets/images/Gilang_Purnomo.jpg"
                 alt="Gilang Purnomo"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="h-[360px] w-[300px] object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
               <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-purple-600/10 to-blue-700/10 group-hover:via-purple-600/20 transition-all duration-300 rounded-xl"></div>
@@ -34,23 +34,26 @@
 
         <!-- Content section -->
         <div class="w-full lg:w-3/5 order-2 space-y-4 md:space-y-6 animate-fade-in text-left pl-0 lg:pl-4" style="animation-delay: 0.4s">
-          <h3 class="text-xl md:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500">
-            Professional Profile
-          </h3>
+          <!-- <h3 class="text-xl md:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500">
+            Fullstack Developer & Network Engineer
+          </h3> -->
           
-          <div class="space-y-3">
+          <div class="space-y-4">
             <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-              <span class="text-blue-600 dark:text-blue-400 font-medium">I'm Gilang Purnomo</span>, a passionate Fullstack Developer and Network Engineer with 5+ years of experience creating innovative digital solutions.
+              <span class="text-blue-600 dark:text-blue-400 font-medium">Hello! I'm Gilang Purnomo</span>, an Information Technology student at Politeknik Negeri Malang with a passion for fullstack web development and network engineering.
             </p>
             
             <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-              I specialize in building <span class="text-purple-600 dark:text-purple-400 font-medium">scalable web applications</span> with modern frameworks while ensuring optimal performance and security.
+              With a background in Computer and Network Engineering from SMK Negeri 2 Kediri and internship experience at <span class="text-purple-600 dark:text-purple-400 font-medium">JTP 3</span>, I bridge software development and infrastructure design.
+            </p>
+
+            <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+              Experienced in developing fullstack applications using <span class="text-purple-600 dark:text-purple-400 font-medium">Laravel, PHP Native, HTML, CSS, JavaScript</span> and designing network infrastructure with <span class="text-purple-600 dark:text-purple-400 font-medium">Cisco Packet Tracer</span>.
             </p>
           </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <!-- Info -->
-            <div class="bg-white/90 dark:bg-gray-800/90 p-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div class="bg-white/90 dark:bg-gray-800/90 p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
               <div class="flex items-start gap-3">
                 <div class="p-2 bg-blue-100/80 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,34 +61,33 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-1">Development Approach</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-xs">
-                    Clean code architecture, test-driven development, and responsive design principles.
+                  <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-2">Web Development</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">
+                    Fullstack development with Laravel, PHP Native, HTML, CSS, JavaScript. Database management with MySQL. UI/UX design with Figma.
                   </p>
                 </div>
               </div>
             </div>
             
-            <div class="bg-white/90 dark:bg-gray-800/90 p-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
+            <div class="bg-white/90 dark:bg-gray-800/90 p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
               <div class="flex items-start gap-3">
-                <div class="p-2 bg-purple-100/80 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
+                <div class="p-2 bg-green-100/80 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-1">Networking Philosophy</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-xs">
-                    Security-first infrastructure design with scalability and reliability.
+                  <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-2">Network Engineering</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">
+                    Network design with Cisco Packet Tracer, IP configuration, subnetting, topology design, and network mapping.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          
-          <!-- button -->
+
           <div class="pt-2">
-            <a href="/path-to-cv.pdf" download="Gilang-Purnomo-CV.pdf" 
+            <a href="/Gilang Purnomo-CV-ATS.pdf" download="Gilang-Purnomo-CV-ATS.pdf" 
               class="inline-block border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white px-4 py-2 md:px-5 md:py-2 lg:px-4 lg:py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-[1.03] hover:bg-blue-500 dark:hover:bg-blue-400 flex items-center justify-center gap-2 w-fit mx-auto md:mx-0">
               Download CV
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

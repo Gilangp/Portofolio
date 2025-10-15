@@ -16,7 +16,7 @@
           </span>
         </h2>
         <p class="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+          Have a project in mind? Let's connect and explore how we can bring your ideas to life.
         </p>
       </div>
 
@@ -127,7 +127,7 @@
                 </div>
                 <div>
                   <h4 class="text-xs font-medium text-gray-500 dark:text-gray-400">Location</h4>
-                  <p class="text-gray-700 dark:text-gray-300 text-xs font-medium">Kediri, Indonesia</p>
+                  <p class="text-gray-700 dark:text-gray-300 text-xs font-medium">Malang, Indonesia</p>
                 </div>
               </div>
 
@@ -138,8 +138,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-medium text-gray-500 dark:text-gray-400">Availability</h4>
-                  <p class="text-gray-700 dark:text-gray-300 text-xs font-medium">Mon-Fri, 9AM-5PM GMT+7</p>
+                  <h4 class="text-xs font-medium text-gray-500 dark:text-gray-400">Response Time</h4>
+                  <p class="text-gray-700 dark:text-gray-300 text-xs font-medium">Same day - 24 hours</p>
                 </div>
               </div>
             </div>
@@ -178,17 +178,6 @@
                   <span class="text-gray-700 dark:text-gray-300 text-xs font-medium">LinkedIn</span>
                 </div>
               </a>
-              
-              <!-- <a href="https://twitter.com/gilangpurnomo" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
-                <div class="p-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 flex items-center gap-1.5">
-                  <div class="p-1 bg-white dark:bg-gray-800 rounded-md">
-                    <svg class="h-3.5 w-3.5 text-gray-800 dark:text-gray-200" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                    </svg>
-                  </div>
-                  <span class="text-gray-700 dark:text-gray-300 text-xs font-medium">Twitter</span>
-                </div>
-              </a> -->
               
               <a href="https://www.instagram.com/gilangprnm__/" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[90px]">
                 <div class="p-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors duration-200 flex items-center gap-1.5">
@@ -232,10 +221,10 @@
 <script>
 import { ref } from 'vue'
 import emailjs from 'emailjs-com'
+
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
 
 export default {
   setup() {
@@ -258,7 +247,7 @@ export default {
           name: form.value.name,
           email: form.value.email,
           message: form.value.message,
-          time: new Date().toLocaleString(),
+          time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }),
         },
         PUBLIC_KEY
       )
