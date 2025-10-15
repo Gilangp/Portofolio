@@ -151,6 +151,12 @@
 <script>
 import { ref } from 'vue'
 
+import portofolio1 from '../../assets/images/portofolio.png'
+import portofolio2 from '../../assets/images/portofolio2.png'
+import portofolio3 from '../../assets/images/portofolio3.png'
+import portofolio4 from '../../assets/images/portofolio4.png'
+import portofolio5 from '../../assets/images/portofolio5.png'
+
 // Project Card Component
 const ProjectCard = {
   props: ['project'],
@@ -187,7 +193,7 @@ export default {
         title: "Portfolio Website",
         shortDescription: "A modern, responsive portfolio website showcasing my projects and technical skills with elegant design and smooth interactions.",
         description: "A meticulously crafted personal portfolio website developed using Vue.js and Tailwind CSS. This platform serves as a digital showcase of my work, featuring a sleek dark/light mode interface, dynamic project filtering, and seamless user experience across all devices. The website demonstrates modern web development practices with optimized performance and clean code architecture.",
-        image: "/src/assets/images/portofolio.png",
+        image: portofolio1,
         tags: ["Vue.js", "Tailwind CSS", "Responsive Design", "Dark Mode", "Vue Router", "Component-Based Architecture"],
         features: [
         "Fully responsive design optimized for desktop, tablet, and mobile devices",
@@ -207,7 +213,7 @@ export default {
         title: "SIMANTAP (Sistem Manajemen Tanggap Perbaikan)",
         shortDescription: "A comprehensive campus facility management system with automated reporting, priority-based repair assignment, and real-time tracking.",
         description: "SIMANTAP is a full-stack web application designed to streamline facility damage reporting and repair management in campus environments. Built with Laravel backend and Bootstrap frontend, the system features multi-role access (Admin, Reporter, Facility Manager, Technician), automated priority calculation using TOPSIS decision support system, and comprehensive reporting capabilities. The platform digitizes the entire repair workflow from initial reporting to completion and feedback with a responsive Bootstrap interface.",
-        image: "/src/assets/images/portofolio2.png",
+        image: portofolio2,
         tags: ["Laravel", "PHP", "MySQL", "Bootstrap", "JavaScript", "TOPSIS Algorithm", "PDF Export", "Multi-role System"],
         features: [
         "Multi-role access system (Admin, Pelapor, Sarpras, Teknisi)",
@@ -229,7 +235,7 @@ export default {
         title: "Pemetaan Jaringan SMAN 1 PROBOLINGGO",
         shortDescription: "Comprehensive network infrastructure design and implementation project for high school campus.",
         description: "A complete network design and implementation project for SMAN 1 Probolinggo, featuring mesh topology with multiple routers, switches, and access points. The project includes detailed IP allocation, bandwidth calculation, router configuration, and server setup using Cisco Packet Tracer. This network infrastructure supports 1,765 devices across 4 zones with redundant connections for high reliability.",
-        image: "/src/assets/images/portofolio3.png",
+        image: portofolio3,
         tags: ["Cisco Packet Tracer", "Network Design", "Mesh Topology", "IP Allocation", "Router Configuration", "Server Setup"],
         features: [
         "Mesh topology design with 5 routers and redundant connections",
@@ -248,7 +254,7 @@ export default {
         "title": "PWL POS (Point of Sale)",
         "shortDescription": "A comprehensive Point of Sale web application built with Laravel for business transaction management.",
         "description": "A full-featured Point of Sale system developed using Laravel framework with MySQL database. This application provides complete business management capabilities including product inventory, customer management, sales transactions, and reporting features. The system supports multiple user roles with proper authentication and authorization.",
-        "image": "/src/assets/images/portofolio4.png",
+        "image": portofolio4,
         "tags": ["Laravel", "PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery"],
         "features": [
           "Product catalog and inventory management",
@@ -267,7 +273,7 @@ export default {
         "title": "PrestasiKu",
         "shortDescription": "A student achievement management system built with native web technologies.",
         "description": "A web-based student achievement management system developed using native HTML, CSS, and JavaScript. This application allows educational institutions to record and manage student accomplishments including academic awards, competitions, and extracurricular activities. The system features a clean interface with form validation, data management, and achievement tracking capabilities.",
-        "image": "/src/assets/images/portofolio5.png",
+        "image": portofolio5,
         "tags": ["HTML", "CSS", "JavaScript", "Native Web","PHP", "MySQL", "Bootstrap", "Form Validation", "Data Management"],
         "features": [
           "Student achievement registration forms",
