@@ -9,16 +9,16 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-10">
         <!-- Logo -->
-        <a
-          href="#home"
-          @click.prevent="scrollTo('home')"
+        <RouterLink
+          :to="{ path: '/', hash: '#home' }"
           class="flex items-center text-xl font-bold text-gray-900 dark:text-white hover:text-light-blue transition-colors duration-200"
           :class="{ '!text-light-blue': activeSection === 'home' }"
           aria-label="Home"
+          @click="closeMenu"
         >
           <span class="text-light-blue">G</span>
           <span class="text-gray-900 dark:text-white">ilangprnm</span>
-        </a>
+        </RouterLink>
 
         <!-- Mobile Menu Button -->
         <button
@@ -39,21 +39,21 @@
         <div class="hidden sm:flex items-center gap-2 sm:gap-4">
           <ul class="flex space-x-2 sm:space-x-4">
             <li v-for="link in navLinks" :key="link.id">
-              <a
-                :href="`#${link.id}`"
-                @click.prevent="scrollTo(link.id)"
+              <RouterLink
+                :to="{ path: '/', hash: `#${link.id}` }"
                 class="relative px-2 py-1 text-xs sm:text-sm font-medium transition-colors duration-200"
                 :class="{
                   'text-gray-900 dark:text-white': activeSection === link.id,
                   'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white': activeSection !== link.id
                 }"
+                @click="closeMenu"
               >
                 {{ link.name }}
                 <span
                   v-if="activeSection === link.id"
                   class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-light-blue rounded-full"
                 ></span>
-              </a>
+              </RouterLink>
             </li>
           </ul>
 
@@ -86,19 +86,19 @@
           class="sm:hidden mt-2 pb-4 space-y-2"
           @keydown.esc="isMenuOpen = false"
         >
-          <a
+          <RouterLink
             v-for="link in navLinks"
             :key="link.id"
-            :href="`#${link.id}`"
-            @click.prevent="() => { scrollTo(link.id); closeMenu(); }"
+            :to="{ path: '/', hash: `#${link.id}` }"
             class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             :class="{
               'text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800': activeSection === link.id,
               'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800': activeSection !== link.id
             }"
+            @click="closeMenu"
           >
             {{ link.name }}
-          </a>
+          </RouterLink>
           
           <button
             @click="toggleDarkMode"
@@ -117,12 +117,14 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { MoonIcon, SunIcon, Bars3Icon, XMarkIcon } from '@heroicons/vue/24/solid'
 import useDarkMode from '@/composables/useDarkMode'
 import { debounce } from 'lodash-es'
 
 const { isDark, toggleDarkMode } = useDarkMode()
+const route = useRoute()
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
 const activeSection = ref('home')
@@ -135,30 +137,29 @@ const navLinks = computed(() => [
   { id: 'contact', name: 'Contact' }
 ])
 
-const scrollTo = (id) => {
-  activeSection.value = id
-  const element = document.getElementById(id)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
+const updateActiveSection = () => {
+  const scrollPos = window.scrollY + 120
+  navLinks.value.forEach(link => {
+    const element = document.getElementById(link.id)
+    if (!element) return
+    const offsetTop = element.offsetTop
+    const offsetBottom = offsetTop + element.offsetHeight
+    if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+      activeSection.value = link.id
+    }
+  })
 }
 
 const handleScroll = debounce(() => {
   isScrolled.value = window.scrollY > 10
-  
-  // Update active section on scroll
-  const scrollPos = window.scrollY + 100
-  navLinks.value.forEach(link => {
-    const section = document.getElementById(link.id)
-    if (section) {
-      const offsetTop = section.offsetTop
-      const offsetBottom = offsetTop + section.offsetHeight
-      if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
-        activeSection.value = link.id
-      }
-    }
-  })
+  updateActiveSection()
 }, 100)
+
+watch(() => route.hash, (hash) => {
+  if (hash) {
+    activeSection.value = hash.replace('#', '')
+  }
+})
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -173,6 +174,9 @@ const closeMenu = () => {
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   handleScroll()
+  if (route.hash) {
+    activeSection.value = route.hash.replace('#', '')
+  }
 })
 
 onBeforeUnmount(() => {

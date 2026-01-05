@@ -101,19 +101,6 @@
   </section>
 </template>
 
-<script>
-export default {
-  methods: {
-    scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }
-};
-</script>
-
 <style scoped>
 .animate-fade-in {
   animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;

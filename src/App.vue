@@ -1,52 +1,20 @@
 <template>
   <div class="flex flex-col min-h-screen transition duration-300 ease-in-out bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
     <NavBar class="flex-shrink-0" />
-    
     <main class="flex-grow">
-      <section id="home" class="section-page">
-        <Home />
-      </section>
-      
-      <section id="about" class="section-page">
-        <About />
-      </section>
-
-      <section id="skills" class="section-page">
-        <Skills />
-      </section>
-      
-      <section id="portfolio" class="section-page">
-        <Portfolio />
-      </section>
-      
-      <section id="contact" class="section-page">
-        <Contact />
-      </section>
+      <RouterView />
     </main>
-
     <Footer class="flex-shrink-0" />
   </div>
 </template>
 
 <script>
+import { RouterView } from 'vue-router'
 import NavBar from '@/components/layout/NavBar.vue'
 import Footer from '@/components/layout/Footer.vue'
-import Home from '@/components/sections/Home.vue'
-import About from '@/components/sections/About.vue'
-import Skills from '@/components/sections/Skills.vue'
-import Portfolio from '@/components/sections/Portfolio.vue'
-import Contact from '@/components/sections/Contact.vue'
 
 export default {
-  components: {
-    NavBar,
-    Footer,
-    Home,
-    About,
-    Skills,
-    Portfolio,
-    Contact
-  },
+  components: { NavBar, Footer, RouterView },
   mounted() {
     document.body.classList.add('responsive-layout')
   },

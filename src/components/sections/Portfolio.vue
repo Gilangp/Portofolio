@@ -1,5 +1,5 @@
 <template>
-  <section class="py-14 px-4 sm:px-6 lg:px-8 bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden">
+  <section id="portfolio" class="py-14 px-4 sm:px-6 lg:px-8 bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden">
 
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
       <div class="absolute top-1/4 left-1/5 w-32 h-32 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl animate-float-slow opacity-70"></div>

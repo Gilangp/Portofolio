@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-500 relative overflow-hidden">
+  <section id="home" class="min-h-screen bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-500 relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
       <div class="absolute top-20 left-10 w-32 h-32 rounded-full bg-blue-400/10 blur-3xl animate-float-slow"></div>
       <div class="absolute bottom-1/4 right-20 w-40 h-40 rounded-full bg-blue-600/10 blur-3xl animate-float-slower"></div>
@@ -85,7 +85,7 @@
 
           <!-- button -->
           <div class="flex flex-col sm:flex-row gap-4 pt-3 animate-fade-in" style="animation-delay: 0.9s">
-            <button @click="scrollToSection('portfolio')" class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
+            <button @click="goTo('portfolio')" class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
               <span class="relative z-10 flex items-center gap-2">
                 View My Work 
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -93,7 +93,7 @@
               <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></span>
             </button>
             
-            <button @click="scrollToSection('contact')" class="relative overflow-hidden group border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105">
+            <button @click="goTo('contact')" class="relative overflow-hidden group border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105">
               <span class="relative z-10 flex items-center gap-2">
                 Contact Me
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -172,11 +172,8 @@ export default {
         }
       }, this.erasingSpeed);
     },
-    scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    goTo(sectionId) {
+      this.$router.push({ path: '/', hash: `#${sectionId}` })
     }
   }
 };
