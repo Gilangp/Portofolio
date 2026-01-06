@@ -2,8 +2,14 @@
   <section id="portfolio" class="py-14 px-4 sm:px-6 lg:px-8 bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden">
 
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      <div class="absolute top-1/4 left-1/5 w-32 h-32 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl animate-float-slow opacity-70"></div>
-      <div class="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-indigo-600/10 to-pink-600/10 blur-xl animate-float-slower opacity-70"></div>
+      <div 
+        class="absolute top-1/4 left-1/5 w-32 h-32 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl animate-float-slow opacity-70 transition-transform duration-300"
+        :style="{ transform: `translate(${parallaxX * 0.35}px, ${parallaxY * 0.28}px)` }"
+      ></div>
+      <div 
+        class="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-indigo-600/10 to-pink-600/10 blur-xl animate-float-slower opacity-70 transition-transform duration-300"
+        :style="{ transform: `translate(${-parallaxX * 0.55}px, ${parallaxY * 0.38}px)` }"
+      ></div>
     </div>
 
     <div class="h-8"></div>
@@ -150,6 +156,7 @@
 
 <script>
 import { ref } from 'vue'
+import { useParallax } from '@/composables/useParallax'
 
 import portofolio1 from '../../assets/images/portofolio.png'
 import portofolio2 from '../../assets/images/portofolio2.png'
@@ -184,6 +191,7 @@ const ProjectCard = {
 export default {
   components: { ProjectCard },
   setup() {
+    const { parallaxY, parallaxX } = useParallax()
     const slider = ref(null)
     const selectedProject = ref(null)
     const previewImage = ref(null)
@@ -353,6 +361,8 @@ export default {
       selectedProject,
       previewImage,
       hasMultipleImages,
+      parallaxY,
+      parallaxX,
       nextSlide,
       prevSlide,
       openModal,

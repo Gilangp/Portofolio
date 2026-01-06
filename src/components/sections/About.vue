@@ -1,8 +1,14 @@
 <template>
   <section id="about" class="min-h-[60vh] bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden py-8 md:py-12">
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      <div class="absolute top-1/4 left-1/5 w-32 h-32 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl animate-float-slow opacity-70"></div>
-      <div class="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-indigo-600/10 to-pink-600/10 blur-xl animate-float-slower opacity-70"></div>
+      <div 
+        class="absolute top-1/4 left-1/5 w-32 h-32 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl animate-float-slow opacity-70 transition-transform duration-300"
+        :style="{ transform: `translate(${parallaxX * 0.4}px, ${parallaxY * 0.2}px)` }"
+      ></div>
+      <div 
+        class="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-indigo-600/10 to-pink-600/10 blur-xl animate-float-slower opacity-70 transition-transform duration-300"
+        :style="{ transform: `translate(${-parallaxX * 0.6}px, ${parallaxY * 0.3}px)` }"
+      ></div>
     </div>
 
     <div class="h-8"></div>
@@ -150,3 +156,14 @@
   }
 }
 </style>
+
+<script>
+import { useParallax } from '@/composables/useParallax'
+
+export default {
+  setup() {
+    const { parallaxY, parallaxX } = useParallax()
+    return { parallaxY, parallaxX }
+  }
+}
+</script>

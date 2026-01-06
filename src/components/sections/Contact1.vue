@@ -35,54 +35,46 @@
             
             <form @submit.prevent="submitForm" class="space-y-3">
               <div class="space-y-1">
-                <label for="name" class="text-xs font-medium text-gray-700 dark:text-gray-300">Your Name *</label>
+                <label for="name" class="text-xs font-medium text-gray-700 dark:text-gray-300">Your Name</label>
                 <input 
                   type="text" 
                   id="name"
                   v-model="form.name" 
                   required
-                  minlength="2"
-                  class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
-                  :class="errors.name ? 'border-red-500 dark:border-red-500' : 'border-gray-200 dark:border-gray-700'"
-                  placeholder="Enter your name"
+                  class="w-full px-3 py-2 text-xs border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
+                  placeholder="Kael Ardyn"
                 >
-                <span v-if="errors.name" class="text-xs text-red-500">{{ errors.name }}</span>
               </div>
 
               <div class="space-y-1">
-                <label for="email" class="text-xs font-medium text-gray-700 dark:text-gray-300">Email Address *</label>
+                <label for="email" class="text-xs font-medium text-gray-700 dark:text-gray-300">Email Address</label>
                 <input 
                   type="email" 
                   id="email"
                   v-model="form.email" 
                   required
-                  class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
-                  :class="errors.email ? 'border-red-500 dark:border-red-500' : 'border-gray-200 dark:border-gray-700'"
-                  placeholder="your.email@example.com"
-                  @blur="validateEmail"
+                  class="w-full px-3 py-2 text-xs border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
+                  placeholder="Kael@example.com"
                 >
-                <span v-if="errors.email" class="text-xs text-red-500">{{ errors.email }}</span>
               </div>
 
               <div class="space-y-1">
-                <label for="message" class="text-xs font-medium text-gray-700 dark:text-gray-300">Your Message *</label>
+                <label for="message" class="text-xs font-medium text-gray-700 dark:text-gray-300">Your Message</label>
                 <textarea 
                   id="message"
                   v-model="form.message" 
                   rows="3" 
                   required
-                  minlength="10"
-                  class="w-full px-3 py-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
-                  :class="errors.message ? 'border-red-500 dark:border-red-500' : 'border-gray-200 dark:border-gray-700'"
-                  placeholder="Tell me about your project..."
+                  class="w-full px-3 py-2 text-xs border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 dark:bg-gray-800/70 dark:text-white transition-all duration-200"
+                  placeholder="Hello, I'd like to talk about..."
                 ></textarea>
-                <span v-if="errors.message" class="text-xs text-red-500">{{ errors.message }}</span>
               </div>
 
               <button 
                 type="submit" 
-                :disabled="isSubmitting || !isFormValid"
-                class="w-full text-xs bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-300 shadow hover:shadow-md flex items-center justify-center"
+                :disabled="isSubmitting"
+                @click="handleSubmit"
+                class="ripple-button w-full text-xs bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-300 shadow hover:shadow-md flex items-center justify-center relative overflow-hidden"
               >
                 <span v-if="!isSubmitting" class="flex items-center">
                   Send Message
@@ -221,25 +213,16 @@
         <svg class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        <span class="text-xs font-medium">Message sent successfully! Thanks for reaching out.</span>
-      </div>
-    </div>
-
-    <!-- error toast -->
-    <div v-if="showErrorToast" class="fixed bottom-4 right-4 z-50 animate-fade-in-up">
-      <div class="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-1.5 rounded-lg shadow-lg flex items-center">
-        <svg class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-        <span class="text-xs font-medium">{{ errorMessage }}</span>
+        <span class="text-xs font-medium">Message sent successfully!</span>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import emailjs from 'emailjs-com'
+import { useRipple } from '@/composables/useRipple'
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
@@ -247,13 +230,8 @@ const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default {
   setup() {
+    const { createRipple } = useRipple()
     const form = ref({
-      name: '',
-      email: '',
-      message: ''
-    })
-
-    const errors = ref({
       name: '',
       email: '',
       message: ''
@@ -261,115 +239,47 @@ export default {
 
     const isSubmitting = ref(false)
     const showSuccessToast = ref(false)
-    const showErrorToast = ref(false)
-    const errorMessage = ref('')
 
-    // Validasi email ketat
-    const validateEmail = () => {
-      const email = form.value.email.trim()
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      
-      // List email anonymous/palsu
-      const anonymousEmails = ['anonymous@', 'test@test', 'aaa@aaa', 'noname@', 'email@email', 'fake@', '123@123']
-
-      errors.value.email = ''
-
-      if (!email) {
-        errors.value.email = 'Email is required'
-        return false
-      }
-
-      if (!emailRegex.test(email)) {
-        errors.value.email = 'Please enter a valid email address (e.g., user@domain.com)'
-        return false
-      }
-
-      if (anonymousEmails.some(anon => email.toLowerCase().includes(anon))) {
-        errors.value.email = 'Please use a real email address'
-        return false
-      }
-
-      return true
-    }
-
-    // Validasi form lengkap
-    const validateForm = () => {
-      errors.value = { name: '', email: '', message: '' }
-
-      if (!form.value.name.trim() || form.value.name.length < 2) {
-        errors.value.name = 'Name must be at least 2 characters'
-      }
-
-      if (!validateEmail()) {
-        return false
-      }
-
-      if (!form.value.message.trim() || form.value.message.length < 10) {
-        errors.value.message = 'Message must be at least 10 characters'
-      }
-
-      return !errors.value.name && !errors.value.email && !errors.value.message
-    }
-
-    // Computed untuk button disabled state
-    const isFormValid = computed(() => {
-      return (
-        form.value.name.trim().length >= 2 &&
-        form.value.email.trim().length > 0 &&
-        form.value.message.trim().length >= 10 &&
-        !errors.value.email
-      )
-    })
-
-    const submitForm = async () => {
-      if (!validateForm()) {
-        errorMessage.value = 'Please fill all fields correctly'
-        showErrorToast.value = true
-        setTimeout(() => (showErrorToast.value = false), 4000)
-        return
-      }
-
+    const submitForm = () => {
       isSubmitting.value = true
 
-      try {
-        await emailjs.send(
-          SERVICE_ID,
-          TEMPLATE_ID,
-          {
-            from_name: form.value.name,
-            from_email: form.value.email,
-            message: form.value.message,
-            to_email: 'gilangpurnomo0505@gmail.com',
-            reply_to: form.value.email,
-            time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
-          },
-          PUBLIC_KEY
-        )
-
+      emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: form.value.name,
+          email: form.value.email,
+          message: form.value.message,
+          time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }),
+        },
+        PUBLIC_KEY
+      )
+      .then(() => {
         showSuccessToast.value = true
         form.value = { name: '', email: '', message: '' }
-        errors.value = { name: '', email: '', message: '' }
-        setTimeout(() => (showSuccessToast.value = false), 4000)
-      } catch (err) {
-        errorMessage.value = 'Failed to send email. Please try again.'
-        showErrorToast.value = true
-        console.error('EmailJS error:', err)
-        setTimeout(() => (showErrorToast.value = false), 4000)
-      } finally {
+        setTimeout(() => showSuccessToast.value = false, 3000)
+      })
+      .catch((err) => {
+        alert("Failed to send email. Please try again.")
+        console.error(err)
+      })
+      .finally(() => {
         isSubmitting.value = false
+      })
+    }
+
+    const handleSubmit = (event) => {
+      if (!isSubmitting.value) {
+        createRipple(event)
       }
     }
 
     return {
       form,
-      errors,
       isSubmitting,
       showSuccessToast,
-      showErrorToast,
-      errorMessage,
-      isFormValid,
       submitForm,
-      validateEmail
+      handleSubmit
     }
   }
 }

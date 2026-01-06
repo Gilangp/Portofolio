@@ -1,9 +1,18 @@
 <template>
   <section id="home" class="min-h-screen bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white transition-colors duration-500 relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-      <div class="absolute top-20 left-10 w-32 h-32 rounded-full bg-blue-400/10 blur-3xl animate-float-slow"></div>
-      <div class="absolute bottom-1/4 right-20 w-40 h-40 rounded-full bg-blue-600/10 blur-3xl animate-float-slower"></div>
-      <div class="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-500/10 blur-xl animate-float-reverse"></div>
+      <div 
+        class="absolute top-20 left-10 w-32 h-32 rounded-full bg-blue-400/10 blur-3xl animate-float-slow transition-transform duration-300"
+        :style="{ transform: `translate(${parallaxX * 0.5}px, ${parallaxY * 0.3}px)` }"
+      ></div>
+      <div 
+        class="absolute bottom-1/4 right-20 w-40 h-40 rounded-full bg-blue-600/10 blur-3xl animate-float-slower transition-transform duration-300"
+        :style="{ transform: `translate(${-parallaxX * 0.8}px, ${parallaxY * 0.5}px)` }"
+      ></div>
+      <div 
+        class="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-500/10 blur-xl animate-float-reverse transition-transform duration-300"
+        :style="{ transform: `translate(${parallaxX * 0.3}px, ${-parallaxY * 0.4}px)` }"
+      ></div>
     </div>
 
     <div class="h-14"></div>
@@ -25,7 +34,7 @@
                 src="@/assets/images/porto.jpeg"
                 alt="Gilang Purnomo"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
+                loading="eager"
               />
             </div>
             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-600/10 to-blue-700/10 group-hover:backdrop-blur-0 transition-all duration-500 rounded-full"></div>
@@ -85,7 +94,7 @@
 
           <!-- button -->
           <div class="flex flex-col sm:flex-row gap-4 pt-3 animate-fade-in" style="animation-delay: 0.9s">
-            <button @click="goTo('portfolio')" class="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
+            <button @click="handleButtonClick($event, 'portfolio')" class="ripple-button relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30">
               <span class="relative z-10 flex items-center gap-2">
                 View My Work 
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -93,7 +102,7 @@
               <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></span>
             </button>
             
-            <button @click="goTo('contact')" class="relative overflow-hidden group border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105">
+            <button @click="handleButtonClick($event, 'contact')" class="ripple-button relative overflow-hidden group border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white px-6 py-2 md:px-8 md:py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 transform hover:scale-105">
               <span class="relative z-10 flex items-center gap-2">
                 Contact Me
                 <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -109,12 +118,20 @@
 
 <script>
 import { Github as GithubIcon, Instagram as InstagramIcon, Linkedin as LinkedinIcon } from 'lucide-vue-next'
+import { useRipple } from '@/composables/useRipple'
+import { useParallax } from '@/composables/useParallax'
 
 export default {
   components: {
     GithubIcon,
     InstagramIcon,
     LinkedinIcon
+  },
+  setup() {
+    const { createRipple } = useRipple()
+    const { parallaxY, parallaxX } = useParallax()
+    
+    return { createRipple, parallaxY, parallaxX }
   },
   data() {
     return {
@@ -174,6 +191,10 @@ export default {
     },
     goTo(sectionId) {
       this.$router.push({ path: '/', hash: `#${sectionId}` })
+    },
+    handleButtonClick(event, sectionId) {
+      this.createRipple(event)
+      setTimeout(() => this.goTo(sectionId), 200)
     }
   }
 };
@@ -277,6 +298,22 @@ h1 {
 @keyframes pulse {
   0%, 100% { opacity: 0.1; transform: scale(1); }
   50% { opacity: 0.2; transform: scale(1.1); }
+}
+
+.ripple-button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 640px) {
