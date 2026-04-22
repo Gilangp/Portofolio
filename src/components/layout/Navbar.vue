@@ -9,16 +9,15 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-10">
         <!-- Logo -->
-        <RouterLink
-          :to="{ path: '/', hash: '#home' }"
-          class="flex items-center text-xl font-bold text-gray-900 dark:text-white hover:text-light-blue transition-colors duration-200"
+        <button
+          @click="scrollToSection('home')"
+          class="flex items-center text-xl font-bold text-gray-900 dark:text-white hover:text-light-blue transition-colors duration-200 bg-none border-none cursor-pointer"
           :class="{ '!text-light-blue': activeSection === 'home' }"
           aria-label="Home"
-          @click="closeMenu"
         >
           <span class="text-light-blue">G</span>
           <span class="text-gray-900 dark:text-white">ilangprnm</span>
-        </RouterLink>
+        </button>
 
         <!-- Mobile Menu Button -->
         <button
@@ -39,21 +38,20 @@
         <div class="hidden sm:flex items-center gap-2 sm:gap-4">
           <ul class="flex space-x-2 sm:space-x-4">
             <li v-for="link in navLinks" :key="link.id">
-              <RouterLink
-                :to="{ path: '/', hash: `#${link.id}` }"
-                class="relative px-2 py-1 text-xs sm:text-sm font-medium transition-colors duration-200"
+              <button
+                @click="scrollToSection(link.id)"
+                class="relative px-2 py-1 text-xs sm:text-sm font-medium transition-colors duration-200 bg-none border-none cursor-pointer"
                 :class="{
                   'text-gray-900 dark:text-white': activeSection === link.id,
                   'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white': activeSection !== link.id
                 }"
-                @click="closeMenu"
               >
                 {{ link.name }}
                 <span
                   v-if="activeSection === link.id"
                   class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-light-blue rounded-full"
                 ></span>
-              </RouterLink>
+              </button>
             </li>
           </ul>
 
@@ -86,19 +84,18 @@
           class="sm:hidden mt-2 pb-4 space-y-2"
           @keydown.esc="isMenuOpen = false"
         >
-          <RouterLink
+          <button
             v-for="link in navLinks"
             :key="link.id"
-            :to="{ path: '/', hash: `#${link.id}` }"
-            class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+            @click="scrollToSection(link.id)"
+            class="w-full block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-left bg-none border-none cursor-pointer"
             :class="{
               'text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800': activeSection === link.id,
               'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800': activeSection !== link.id
             }"
-            @click="closeMenu"
           >
             {{ link.name }}
-          </RouterLink>
+          </button>
           
           <button
             @click="toggleDarkMode"
@@ -117,14 +114,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { MoonIcon, SunIcon, Bars3Icon, XMarkIcon } from '@heroicons/vue/24/solid'
 import useDarkMode from '@/composables/useDarkMode'
 import { debounce } from 'lodash-es'
 
 const { isDark, toggleDarkMode } = useDarkMode()
-const route = useRoute()
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
 const activeSection = ref('home')
@@ -155,11 +150,7 @@ const handleScroll = debounce(() => {
   updateActiveSection()
 }, 100)
 
-watch(() => route.hash, (hash) => {
-  if (hash) {
-    activeSection.value = hash.replace('#', '')
-  }
-})
+// Removed hash watcher since we're not using hash routing anymore
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -171,12 +162,18 @@ const closeMenu = () => {
   document.body.style.overflow = ''
 }
 
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+    activeSection.value = sectionId
+  }
+  closeMenu()
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   handleScroll()
-  if (route.hash) {
-    activeSection.value = route.hash.replace('#', '')
-  }
 })
 
 onBeforeUnmount(() => {

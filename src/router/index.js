@@ -11,7 +11,6 @@ const router = createRouter({
     routes,
     scrollBehavior(to, from, saved) {
         if (saved) return saved
-        if (to.hash) return { el: to.hash, behavior: 'smooth' }
         return { top: 0 }
     }
 })

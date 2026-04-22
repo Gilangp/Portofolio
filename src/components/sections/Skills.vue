@@ -1,5 +1,5 @@
 <template>
-    <section id="skills" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-light-gray text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden">
+    <section id="skills" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gray-100 text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 dark:text-white transition-colors duration-700 relative overflow-hidden">
         
         <div class="h-8"></div>
 
