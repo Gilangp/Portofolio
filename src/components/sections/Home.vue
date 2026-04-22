@@ -189,12 +189,15 @@ export default {
         }
       }, this.erasingSpeed);
     },
-    goTo(sectionId) {
-      this.$router.push({ path: '/', hash: `#${sectionId}` })
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     },
     handleButtonClick(event, sectionId) {
       this.createRipple(event)
-      setTimeout(() => this.goTo(sectionId), 200)
+      setTimeout(() => this.scrollToSection(sectionId), 200)
     }
   }
 };
