@@ -73,10 +73,10 @@
               </svg>
             </button>
             
-            <div class="relative group cursor-zoom-in" @click.stop="openImagePreview(selectedProject.image)">
+            <div class="relative cursor-zoom-in" @click.stop="openImagePreview(selectedProject.image)" @mouseenter="isImageHovered = true" @mouseleave="isImageHovered = false">
               <img :src="selectedProject.image" :alt="selectedProject.title" class="w-full h-64 object-cover rounded-t-xl">
-              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-80 rounded-full p-3">
+              <div class="absolute inset-0 transition-all duration-300 flex items-center justify-center" :style="isImageHovered ? 'background-color: rgba(0, 0, 0, 0.3)' : 'background-color: rgba(0, 0, 0, 0)'">
+                <div class="transition-opacity duration-300 bg-white bg-opacity-80 rounded-full p-3" :style="isImageHovered ? 'opacity: 1' : 'opacity: 0'">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3-3H7" />
                   </svg>
@@ -88,6 +88,27 @@
             </div>
             
             <div class="p-6">
+              <div class="flex flex-wrap items-center gap-3 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                <div class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span>{{ selectedProject.semester }}</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                  </svg>
+                  <span>{{ selectedProject.projectType }}</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3a6 6 0 016-6h6a6 6 0 016 6h-4m-1-4h.01M9 21h6" />
+                  </svg>
+                  <span>{{ selectedProject.teamSize }}</span>
+                </div>
+              </div>
+              
               <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ selectedProject.title }}</h3>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span v-for="(tag, i) in selectedProject.tags" :key="i" class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">
@@ -159,19 +180,26 @@ import { ref } from 'vue'
 import { useParallax } from '@/composables/useParallax'
 
 import portofolio1 from '../../assets/images/portofolio.png'
-import portofolio2 from '../../assets/images/portofolio2.png'
-import portofolio3 from '../../assets/images/portofolio3.png'
-import portofolio4 from '../../assets/images/portofolio4.png'
-import portofolio5 from '../../assets/images/portofolio5.png'
+import portofolio2 from '../../assets/images/simantap.png'
+import portofolio3 from '../../assets/images/jaringan.png'
+import portofolio4 from '../../assets/images/point-of-sale.png'
+import portofolio5 from '../../assets/images/presma.png'
+import gentleLiving from '../../assets/images/gentle-living.png'
+import hortikultura from '../../assets/images/hortikultura.png'
 
 // Project Card Component
 const ProjectCard = {
   props: ['project'],
   emits: ['click'],
+  data() {
+    return {
+      isHovered: false
+    }
+  },
   template: `
-    <div class="bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-md overflow-hidden border border-gray-200/50 dark:border-gray-700/50 cursor-pointer h-full flex flex-col group backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+    <div class="bg-white/90 dark:bg-gray-800/90 rounded-xl shadow-md overflow-hidden border border-gray-200/50 dark:border-gray-700/50 cursor-pointer h-full flex flex-col backdrop-blur-sm transition-all duration-300" :class="isHovered ? 'shadow-lg' : ''" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
       <div class="relative overflow-hidden h-48">
-        <img :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <img :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-500" :style="isHovered ? 'transform: scale(1.1)' : 'transform: scale(1)'">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
           <h3 class="text-xl font-bold text-white">{{ project.title }}</h3>
         </div>
@@ -195,6 +223,7 @@ export default {
     const slider = ref(null)
     const selectedProject = ref(null)
     const previewImage = ref(null)
+    const isImageHovered = ref(false)
     
     const projects = [
       {
@@ -202,6 +231,9 @@ export default {
         shortDescription: "A modern, responsive portfolio website showcasing my projects and technical skills with elegant design and smooth interactions.",
         description: "A meticulously crafted personal portfolio website developed using Vue.js and Tailwind CSS. This platform serves as a digital showcase of my work, featuring a sleek dark/light mode interface, dynamic project filtering, and seamless user experience across all devices. The website demonstrates modern web development practices with optimized performance and clean code architecture.",
         image: portofolio1,
+        semester: "Ongoing",
+        projectType: "Personal Project",
+        teamSize: "Solo",
         tags: ["Vue.js", "Tailwind CSS", "Responsive Design", "Dark Mode", "Vue Router", "Component-Based Architecture"],
         features: [
         "Fully responsive design optimized for desktop, tablet, and mobile devices",
@@ -218,10 +250,56 @@ export default {
         codeUrl: "https://github.com/Gilangp/Portofolio"
       },
       {
+        title: "Website Gentle Living - Payment Gateway Integration",
+        shortDescription: "E-commerce website with secure payment gateway integration for automated transactions and optimized performance.",
+        description: "Developed e-commerce transaction features for Gentle Living website with focus on secure payment gateway integration. Implemented automated payment processing system and optimized page loading performance through efficient image asset management and backend logic optimization. Project completed during internship at CV Harsyad Utama.",
+        image: gentleLiving,
+        semester: "Semester 6 (2026)",
+        projectType: "Internship Project",
+        teamSize: "Team - CV Harsyad Utama",
+        tags: ["Laravel", "PHP", "MySQL", "Payment Gateway", "E-Commerce", "Performance Optimization", "API Integration"],
+        features: [
+          "Secure payment gateway integration",
+          "Automated transaction processing",
+          "E-commerce shopping functionality",
+          "Order management system",
+          "Image asset optimization",
+          "Backend performance tuning",
+          "Responsive design implementation",
+          "Transaction logging and reporting"
+        ],
+        liveUrl: "https://gentleliving.id/",
+        codeUrl: "https://github.com/Gilangp/affiliateHarsyadUtamaV2.git"
+      },
+      {
+        title: "Sistem Klasifikasi Hortikultura Berbasis AI (Computer Vision)",
+        shortDescription: "AI-powered classification system using CNN MobileNetV2 to detect fruit and vegetable physical conditions with 88.33% accuracy.",
+        description: "Built an advanced computer vision model to automatically classify physical conditions of fruits and vegetables. Implemented CNN architecture with MobileNetV2 using Transfer Learning techniques. Optimized image preprocessing using HSV color space to enhance texture feature extraction. Model achieved 88.33% accuracy when validated on 240 independent test images.",
+        image: hortikultura,
+        semester: "Semester 5 (2025)",
+        projectType: "Academic Project",
+        teamSize: "Collaborative",
+        tags: ["Python", "Computer Vision", "CNN", "MobileNetV2", "Transfer Learning", "Machine Learning", "Image Processing", "Deep Learning"],
+        features: [
+          "CNN & MobileNetV2 neural network architecture",
+          "Transfer Learning implementation for accuracy",
+          "HSV color space preprocessing for feature enhancement",
+          "88.33% accuracy on independent test dataset",
+          "240 test images validation",
+          "Texture feature extraction optimization",
+          "Model training and validation pipeline",
+          "Real-world horticultural classification"
+        ],
+        codeUrl: "https://github.com/Gilangp/vegetable-quality.git"
+      },
+      {
         title: "SIMANTAP (Sistem Manajemen Tanggap Perbaikan)",
         shortDescription: "A comprehensive campus facility management system with automated reporting, priority-based repair assignment, and real-time tracking.",
         description: "SIMANTAP is a full-stack web application designed to streamline facility damage reporting and repair management in campus environments. Built with Laravel backend and Bootstrap frontend, the system features multi-role access (Admin, Reporter, Facility Manager, Technician), automated priority calculation using TOPSIS decision support system, and comprehensive reporting capabilities. The platform digitizes the entire repair workflow from initial reporting to completion and feedback with a responsive Bootstrap interface.",
         image: portofolio2,
+        semester: "Semester 4 (2025)",
+        projectType: "Academic Project",
+        teamSize: "Team-based",
         tags: ["Laravel", "PHP", "MySQL", "Bootstrap", "JavaScript", "TOPSIS Algorithm", "PDF Export", "Multi-role System"],
         features: [
         "Multi-role access system (Admin, Pelapor, Sarpras, Teknisi)",
@@ -244,6 +322,9 @@ export default {
         shortDescription: "Comprehensive network infrastructure design and implementation project for high school campus.",
         description: "A complete network design and implementation project for SMAN 1 Probolinggo, featuring mesh topology with multiple routers, switches, and access points. The project includes detailed IP allocation, bandwidth calculation, router configuration, and server setup using Cisco Packet Tracer. This network infrastructure supports 1,765 devices across 4 zones with redundant connections for high reliability.",
         image: portofolio3,
+        semester: "Semester 4 (2025)",
+        projectType: "Academic Project",
+        teamSize: "Collaborative",
         tags: ["Cisco Packet Tracer", "Network Design", "Mesh Topology", "IP Allocation", "Router Configuration", "Server Setup"],
         features: [
         "Mesh topology design with 5 routers and redundant connections",
@@ -263,6 +344,9 @@ export default {
         "shortDescription": "A comprehensive Point of Sale web application built with Laravel for business transaction management.",
         "description": "A full-featured Point of Sale system developed using Laravel framework with MySQL database. This application provides complete business management capabilities including product inventory, customer management, sales transactions, and reporting features. The system supports multiple user roles with proper authentication and authorization.",
         "image": portofolio4,
+        "semester": "Semester 4 (2025)",
+        "projectType": "Academic Project",
+        "teamSize": "Solo",
         "tags": ["Laravel", "PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery"],
         "features": [
           "Product catalog and inventory management",
@@ -282,6 +366,9 @@ export default {
         "shortDescription": "A student achievement management system built with native web technologies.",
         "description": "A web-based student achievement management system developed using native HTML, CSS, and JavaScript. This application allows educational institutions to record and manage student accomplishments including academic awards, competitions, and extracurricular activities. The system features a clean interface with form validation, data management, and achievement tracking capabilities.",
         "image": portofolio5,
+        "semester": "Semester 3 (2024)",
+        "projectType": "Academic Project",
+        "teamSize": "Collaborative",
         "tags": ["HTML", "CSS", "JavaScript", "Native Web","PHP", "MySQL", "Bootstrap", "Form Validation", "Data Management"],
         "features": [
           "Student achievement registration forms",
@@ -360,6 +447,7 @@ export default {
       projects,
       selectedProject,
       previewImage,
+      isImageHovered,
       hasMultipleImages,
       parallaxY,
       parallaxX,

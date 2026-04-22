@@ -195,7 +195,9 @@ data() {
         { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
         { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
         { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' }
+        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+        { name: 'Playwright', icon: 'https://playwright.dev/img/playwright-logo.svg' },
+        { name: 'k6', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/k6/k6-original.svg' }
     ]
     }
 }

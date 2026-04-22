@@ -46,15 +46,11 @@
           
           <div class="space-y-4">
             <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-              <span class="text-blue-600 dark:text-blue-400 font-medium">Hello! I'm Gilang Purnomo</span>, an Information Technology student at Politeknik Negeri Malang with a passion for fullstack web development and network engineering.
+              <span class="text-blue-600 dark:text-blue-400 font-medium">Fullstack Developer & Network Engineer</span> passionate about creating scalable web applications and reliable network infrastructure. Currently studying Information Technology at Politeknik Negeri Malang with hands-on experience from internship at CV Harsyad Utama and engineering background from JTP 3.
             </p>
             
             <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-              With a background in Computer and Network Engineering from SMK Negeri 2 Kediri and internship experience at <span class="text-purple-600 dark:text-purple-400 font-medium">JTP 3</span>, I bridge software development and infrastructure design.
-            </p>
-
-            <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-              Experienced in developing fullstack applications using <span class="text-purple-600 dark:text-purple-400 font-medium">Laravel, PHP Native, HTML, CSS, JavaScript</span> and designing network infrastructure with <span class="text-purple-600 dark:text-purple-400 font-medium">Cisco Packet Tracer</span>.
+              I specialize in building fullstack web solutions using <span class="text-purple-600 dark:text-purple-400 font-medium">Laravel, PHP, Vue.js, and MySQL</span>, designing network infrastructure with <span class="text-purple-600 dark:text-purple-400 font-medium">Cisco Packet Tracer</span>, and implementing automated testing with <span class="text-purple-600 dark:text-purple-400 font-medium">Playwright & k6</span>.
             </p>
           </div>
           
@@ -69,7 +65,7 @@
                 <div>
                   <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-2">Web Development</h4>
                   <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">
-                    Fullstack development with Laravel, PHP Native, HTML, CSS, JavaScript. Database management with MySQL. UI/UX design with Figma.
+                    Fullstack development with Laravel, PHP, Vue.js, HTML, CSS, JavaScript. Database management with MySQL. UI/UX design with Figma.
                   </p>
                 </div>
               </div>
@@ -86,6 +82,38 @@
                   <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-2">Network Engineering</h4>
                   <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">
                     Network design with Cisco Packet Tracer, IP configuration, subnetting, topology design, and network mapping.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/90 dark:bg-gray-800/90 p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
+              <div class="flex items-start gap-3">
+                <div class="p-2 bg-purple-100/80 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-2">QA Automation & Testing</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">
+                    End-to-End testing with Playwright, API testing with Postman, Load testing with k6, API mocking, and performance validation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/90 dark:bg-gray-800/90 p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm border border-gray-100/30 dark:border-gray-700/30">
+              <div class="flex items-start gap-3">
+                <div class="p-2 bg-pink-100/80 dark:bg-pink-900/30 rounded-lg text-pink-600 dark:text-pink-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-2">Machine Learning</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">
+                    Computer Vision with Python, CNN & MobileNetV2 architecture, Transfer Learning, image preprocessing, and model optimization.
                   </p>
                 </div>
               </div>
